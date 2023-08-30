@@ -1,8 +1,14 @@
-HELP.md
+*.class
+bin/
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
 
 ### STS ###
 .apt_generated
