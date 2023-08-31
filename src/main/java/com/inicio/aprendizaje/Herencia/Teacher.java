@@ -14,6 +14,14 @@ public class Teacher extends Person {
     @Override
     public void eat() {
 
-        System.out.println(super.getName() + " Comiendo y soy profesor"                                                                                                                                                );
+        System.out.println(super.getName() + " Comiendo. y soy profesor"                                                                                                                                                );
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }
