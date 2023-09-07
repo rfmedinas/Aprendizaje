@@ -1,0 +1,43 @@
+@startuml
+class com.inicio.aprendizaje.Herencia.Person {
+- String name
+- String lastName
+- int age
+- String email
++ void eat()
++ String getName()
++ void setName(String)
++ String getLastName()
++ void setLastName(String)
++ int getAge()
++ void setAge(int)
++ String getEmail()
++ void setEmail(String)
+}
+class com.inicio.aprendizaje.Herencia.School {
+- int id
+- String name
++ int getId()
++ void setId(int)
++ String getName()
++ void setName(String)
++ String toString()
+}
+class com.inicio.aprendizaje.Herencia.PersonRunner {
++ {static} void main(String[])
+}
+class com.inicio.aprendizaje.Herencia.Student {
+- int studentId
++ int getStudentId()
+}
+class com.inicio.aprendizaje.Herencia.Teacher {
+- School school
++ void eat()
++ School getSchool()
++ void setSchool(School)
+}
+
+
+com.inicio.aprendizaje.Herencia.Person <|-- com.inicio.aprendizaje.Herencia.Student
+com.inicio.aprendizaje.Herencia.Person <|-- com.inicio.aprendizaje.Herencia.Teacher
+@enduml

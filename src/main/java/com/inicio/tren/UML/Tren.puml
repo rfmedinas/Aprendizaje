@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Tren {
+- id : int
+- numEconomicas : int
+- numEjecutivas : int
+- numSillasFila : int
+- sillas: ArrayList<Silla>
++ crearReserva() :  silla
++ eliminarReserva ():  boolean
++ buscarPasajero() :  pasajero
++ calcularOcupacion() :  double
+
+
+}
+class Silla {
+- id : String
+- clase : ClaseSilla
+- posicion : PosicionSilla
+- pasajero  : Pasajero
+- fila : int
++ ocupada () : boolean
+
+}
+class Pasajero {
+- id : int
+- nombre : String
+}
+
+enum PosicionSilla{
+VENTANA
+PASILLO
+CENTRO
+}
+enum ClaseSilla{
+ECONOMICA
+EJECUTIVA
+}
+
+Tren "1 " *- " 100" Silla
+Silla  --  Pasajero
+Silla  --  PosicionSilla
+Silla  -- ClaseSilla
+
+@enduml
