@@ -1,0 +1,69 @@
+@startuml
+class Tren {
+- int id
+- ArrayList<Silla> sillas
++ <<Create>> Tren(int)
+- void crearSilla(ClaseSilla,int,int)
++ Silla crearReserva()
++ boolean eliminarReserva()
++ Pasajero buscarPasajero()
++ BigDecimal calcularOcupacion()
++ ArrayList<Silla> sillasLibres()
++ int getId()
++ ArrayList<Silla> getSillas()
++ void setSillas(ArrayList<Silla>)
++ String toString()
+}
+class Reserva {
+- int id
+- Pasajero pasajero
+- Silla silla
+- boolean activa
++ <<Create>> Reserva(int,Pasajero,Silla)
++ int getId()
++ void setId(int)
++ Pasajero getPasajero()
++ void setPasajero(Pasajero)
++ Silla getSilla()
++ void setSilla(Silla)
++ boolean isActiva()
++ void setActiva(boolean)
+}
+enum ClaseSilla {
++  ECONOMICA
++  EJECUTIVA
+}
+class Pasajero {
+- int cedula
+- String nombre
++ <<Create>> Pasajero(int,String)
++ int getCedula()
++ void setCedula(int)
++ String getNombre()
++ void setNombre(String)
+}
+class Inicio {
++ {static} void main(String[])
+}
+enum PosicionSilla {
++  VENTANA
++  CENTRO
++  PASILLO
+}
+class Silla {
+- String id
+- ClaseSilla claseSilla
+- PosicionSilla posicionSilla
+- Pasajero pasajero
+- int fila
++ <<Create>> Silla(String,ClaseSilla,PosicionSilla,int)
++ boolean isOcupada()
++ String getId()
++ ClaseSilla getClaseSilla()
++ PosicionSilla getPosicionSilla()
++ Pasajero getPasajero()
++ int getFila()
++ void setPasajero(Pasajero)
++ String toString()
+}
+@enduml

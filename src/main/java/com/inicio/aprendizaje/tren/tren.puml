@@ -1,0 +1,39 @@
+@startuml
+class com.inicio.aprendizaje.tren.Tren {
+- int id
+- int numSillas
+- int numEjecutivas
++ <<Create>> Tren(int,int,int)
++ Silla crearReserva()
++ boolean eliminarReserva()
++ Pasajero buscarPasajero()
++ BigDecimal calcularOcupacion()
++ List<Silla> sillasLibres()
++ int getId()
++ void setId(int)
++ int getNumSillas()
++ void setNumSillas(int)
++ int getNumEjecutivas()
++ void setNumEjecutivas(int)
+}
+enum com.inicio.aprendizaje.tren.ClaseSilla {
++  ECONOMICA
++  EJECUTIVA
+}
+class com.inicio.aprendizaje.tren.Pasajero {
+- int cedula
+- String nombre
+}
+enum com.inicio.aprendizaje.tren.PosicionSilla {
++  VENTANA
++  CENTRO
++  PASILLO
+}
+class com.inicio.aprendizaje.tren.Silla {
+- int id
+- ClaseSilla claseSilla
+- PosicionSilla posicionSilla
+- Pasajero pasajero
+- Tren tren
+}
+@enduml

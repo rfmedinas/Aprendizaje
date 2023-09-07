@@ -8,11 +8,11 @@ public class VehiculoEjecutar {
 		camioneta.setTamano("4x4");
 		camioneta.setColor("Negro");
 		System.out.println(camioneta.getTamano());
-		System.out.println(camioneta.toString());
+		System.out.println(camioneta);
 		Vehiculo automovil = new Vehiculo("familiar", 4);
-		System.out.println(automovil.toString());
+		System.out.println(automovil);
 		Vehiculo tractomula = new Vehiculo("doble troque", "rojo", 16, "Mercedes", "pesado");
-		System.out.println(tractomula.toString());
+		System.out.println(tractomula);
 	}
 
 }

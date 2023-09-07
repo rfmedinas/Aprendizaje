@@ -1,7 +1,7 @@
 package com.inicio.aprendizaje.Herencia;
 
 public class Student extends Person{
-    private int studentId;
+    private  int studentId;
     public Student(String name, String lastName, int studentId) {
         super(name, lastName);
         this.studentId = studentId;
