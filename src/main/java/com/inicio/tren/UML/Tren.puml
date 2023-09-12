@@ -10,6 +10,7 @@ class Tren {
 + crearReserva() :  silla
 + eliminarReserva ():  boolean
 + buscarPasajero() :  pasajero
++ consultarReserva(): Cedula
 + calcularOcupacion() :  double
 
 
@@ -31,7 +32,7 @@ class Pasajero {
 enum PosicionSilla{
 VENTANA
 PASILLO
-CENTRO
+
 }
 enum ClaseSilla{
 ECONOMICA

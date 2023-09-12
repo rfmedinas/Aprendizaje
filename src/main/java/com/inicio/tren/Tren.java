@@ -35,6 +35,9 @@ public class Tren {
 
     public double calcularOcupacion() {
         double numOcupadas = 0.0;
+        if (sillas.isEmpty()) {
+            return 0.0;
+        }
         for (Silla silla : sillas) {
             if (silla.ocupada()) {
                 numOcupadas += 1;
@@ -43,8 +46,41 @@ public class Tren {
         return (double) numOcupadas / sillas.size();
     }
 
+    public Silla crearReserva(Pasajero pasajero, ClaseSilla claseSilla, PosicionSilla posicionSilla) throws Exception {
+        for (Silla silla : sillas) {
+            if (silla.getPasajero() != null) {
+                if (silla.getPasajero().getId() == pasajero.getId()) {
+                    throw new Exception("El pasajero ya tiene una reserva");
+                }
+            }
+        }
+
+        for (Silla silla : sillas) {
+            if (silla.getPosicionSilla().equals(posicionSilla)
+                    && silla.getClaseSilla().equals(claseSilla)
+                    && !silla.ocupada()
+            ) {
+                silla.setPasajero(pasajero);
+                return silla;
+            }
+        }
+        return null;
+    }
+
+    public Silla eliminarReserva(Pasajero pasajero) throws Exception {
+        for (Silla silla : sillas) {
+            if (silla.getPasajero() != null) {
+                if (silla.getPasajero().getId() == pasajero.getId()) {
+                    silla.setPasajero(null);
+                    return silla;
+                }
+            }
+        }
+        throw new Exception("El pasajero no tiene Reserva");
+    }
+
     @Override
     public String toString() {
-        return String.format("{\"Tren\": {\"id\":\"%d\",\"numEconomicas\":\"%d\",\"numEjecutivas\":\"%d\",\"numSillasFila\":\"%d\",\"ocupacion\":\"%f\",\"Sillas\":%s}}", id, numEconomicas, numEjecutivas, numSillasFila, calcularOcupacion(), sillas);
+        return String.format("{\"Tren\": {\"id\":\"%d\",\"numEconomicas\":\"%d\",\"numEjecutivas\":\"%d\",\"numSillasFila\":\"%d\",\"ocupacion\":\"%f%%\",\"Sillas\":%s}}", id, numEconomicas, numEjecutivas, numSillasFila, calcularOcupacion() * 100, sillas);
     }
 }

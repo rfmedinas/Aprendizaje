@@ -13,8 +13,8 @@ public class Silla {
         this.claseSilla = claseSilla;
         this.posicionSilla = posicionSilla;
         this.fila = fila;
-        Pasajero nombrePasajero = new Pasajero(1, "raúl");
-        this.pasajero = nombrePasajero;
+        //Pasajero nombrePasajero = new Pasajero(1, "raúl");
+        //this.pasajero = nombrePasajero;
     }
 
     public String getId() {
