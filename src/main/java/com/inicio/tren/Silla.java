@@ -5,7 +5,7 @@ public class Silla {
     private String id;
     private ClaseSilla claseSilla;
     private PosicionSilla posicionSilla;
-    private Pasajero pasajero;
+    private boolean ocupada = false;
     private int fila;
 
     public Silla(String id, ClaseSilla claseSilla, PosicionSilla posicionSilla, int fila) {
@@ -41,12 +41,12 @@ public class Silla {
         this.posicionSilla = posicionSilla;
     }
 
-    public Pasajero getPasajero() {
-        return pasajero;
+    public boolean isOcupada() {
+        return ocupada;
     }
 
-    public void setPasajero(Pasajero pasajero) {
-        this.pasajero = pasajero;
+    public void setOcupada(boolean ocupada) {
+        this.ocupada = ocupada;
     }
 
     public int getFila() {
@@ -63,12 +63,8 @@ public class Silla {
                 "\"id\":\"" + id + "\"" +
                 ", \"claseSilla\":\"" + claseSilla + "\"" +
                 ", \"posicionSilla\":\"" + posicionSilla + "\"" +
-                ", \"pasajero\":" + pasajero + "" +
+                ", \"ocupada\":" + ocupada + "" +
                 ", \"fila\":\"" + fila + "\"" +
                 '}';
-    }
-
-    public boolean ocupada() {
-        return pasajero != null;
     }
 }

@@ -7,8 +7,8 @@ public class Inicio {
         System.out.println(tren.calcularOcupacion());
         Pasajero raul = new Pasajero(1, "Raúl Medina");
         try {
-            Silla silla = tren.crearReserva(raul, ClaseSilla.EJECUTIVA, PosicionSilla.PASILLO);
-            System.out.printf("La Silla Asignada es :%s%n", silla);
+            Reserva reserva = tren.crearReserva(raul, ClaseSilla.EJECUTIVA, PosicionSilla.PASILLO);
+            System.out.printf("La reserva Asignada es :%s%n", reserva);
         } catch (Exception e) {
             System.out.println("error");
             throw new RuntimeException(e);
@@ -16,8 +16,8 @@ public class Inicio {
         }
         Pasajero jose = new Pasajero(2, "Jose Gomez");
         try {
-            Silla silla = tren.crearReserva(jose, ClaseSilla.EJECUTIVA, PosicionSilla.VENTANA);
-            System.out.printf("La Silla Asignada es :%s%n", silla);
+            Reserva reserva = tren.crearReserva(jose, ClaseSilla.EJECUTIVA, PosicionSilla.VENTANA);
+            System.out.printf("La reserva Asignada es :%s%n", reserva);
         } catch (Exception e) {
             System.out.println("error");
             throw new RuntimeException(e);
@@ -25,21 +25,29 @@ public class Inicio {
         }
         System.out.println(tren.calcularOcupacion());
         try {
-            Silla sillaLiberada = tren.eliminarReserva(raul);
-            System.out.println("la Silla Liberada es" + sillaLiberada);
+            tren.eliminarReserva(raul);
+            System.out.println(" el Listado de reservas es" + tren.getReservas());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         System.out.println(tren.calcularOcupacion());
-        Pasajero angela = new Pasajero(3, "Angela PEdraza");
+        Pasajero angela = new Pasajero(3, "Angela Pedraza");
         try {
-            Silla silla = tren.crearReserva(angela, ClaseSilla.EJECUTIVA, PosicionSilla.VENTANA);
-            System.out.printf("La Silla Asignada es :%s%n", silla);
+            Reserva reserva = tren.crearReserva(angela, ClaseSilla.EJECUTIVA, PosicionSilla.VENTANA);
+            System.out.printf("La Reserva Asignada es :%s%n", reserva);
         } catch (Exception e) {
             System.out.println("error");
             throw new RuntimeException(e);
 
+        }
+        System.out.println(tren);
+        try {
+            Reserva reservaEncontrada = tren.buscarPasajero(2);
+            System.out.println(reservaEncontrada);
+            reservaEncontrada = tren.consultarReserva(reservaEncontrada.getId().toString());
+            System.out.println(reservaEncontrada);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
-
 }
