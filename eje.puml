@@ -1,0 +1,265 @@
+@startuml
+class com.inicio.aprendizaje.Herencia.Person {
+- String name
+- String lastName
+- int age
+- String email
++ <<Create>> Person(String,String)
++ void eat()
++ void setName(String)
++ void setLastName(String)
++ void setAge(int)
++ void setEmail(String)
+}
+class com.inicio.aprendizaje.Herencia.School {
+- int id
+- String name
++ <<Create>> School(int,String)
++ int getId()
++ void setId(int)
++ String getName()
++ void setName(String)
++ String toString()
+}
+class com.inicio.tren.Silla {
+- String id
+- ClaseSilla claseSilla
+- PosicionSilla posicionSilla
+- int fila
+- boolean ocupada
++ <<Create>> Silla(String,ClaseSilla,PosicionSilla,int)
++ String getId()
++ void setId(String)
++ ClaseSilla getClaseSilla()
++ void setClaseSilla(ClaseSilla)
++ PosicionSilla getPosicionSilla()
++ void setPosicionSilla(PosicionSilla)
++ int getFila()
++ void setFila(int)
++ boolean isOcupada()
++ void setOcupada(boolean)
++ String toString()
+}
+enum com.inicio.aprendizaje.tren.ClaseSilla {
++  ECONOMICA
++  EJECUTIVA
+}
+class com.inicio.tren.test01 {
++ {static} void main(String[])
+}
+class com.inicio.aprendizaje.Ejemplo.Animal {
+- String type
+- String species
+- String group
++ <<Create>> Animal(String,String,String)
++ String getType()
++ void setType(String)
++ String getSpecies()
++ void setSpecies(String)
++ String getGroup()
++ void setGroup(String)
+}
+class com.inicio.aprendizaje.tren.Inicio {
++ {static} void main(String[])
+}
+class com.inicio.tren.Inicio {
++ {static} void main(String[])
+}
+class com.inicio.aprendizaje.Ejemplo.AnimalRun {
++ {static} void main(String[])
+}
+class com.inicio.aprendizaje.Ejemplo.LandAnimal {
+- int id
++ <<Create>> LandAnimal(String,String,String,int)
++ int getId()
+}
+class com.inicio.tren.Pasajero {
+- int id
+- String nombre
++ <<Create>> Pasajero(int,String)
++ int getId()
++ void setId(int)
++ String getNombre()
++ void setNombre(String)
++ String toString()
+}
+enum com.inicio.tren.PosicionSilla {
++  VENTANA
++  PASILLO
++  CENTRO
+}
+class com.inicio.aprendizaje.Herencia.PersonRunner {
++ {static} void main(String[])
+}
+enum com.inicio.aprendizaje.tren.PosicionSilla {
++  VENTANA
++  CENTRO
++  PASILLO
+}
+class com.inicio.aprendizaje.Herencia.Employee {
+- String title
+- BigDecimal salary
+- Person employer
++ <<Create>> Employee(String,String)
++ String getTitle()
++ void setTitle(String)
++ BigDecimal getSalary()
++ void setSalary(BigDecimal)
++ Person getEmployer()
++ void setEmployer(Person)
+}
+class com.inicio.aprendizaje.AprendizajeApplication {
++ {static} void main(String[])
+}
+class com.inicio.aprendizaje.VehiculoEjecutar {
++ {static} void main(String[])
+}
+class com.inicio.aprendizaje.tren.Reserva {
+- int id
+- Pasajero pasajero
+- Silla silla
+- boolean activa
++ <<Create>> Reserva(int,Pasajero,Silla)
++ int getId()
++ void setId(int)
++ Pasajero getPasajero()
++ void setPasajero(Pasajero)
++ Silla getSilla()
++ void setSilla(Silla)
++ boolean isActiva()
++ void setActiva(boolean)
+}
+class com.inicio.aprendizaje.Herencia.Teacher {
+- School school
++ <<Create>> Teacher(String,String,School)
++ <<Create>> Teacher(Person)
++ void eat()
++ School getSchool()
++ void setSchool(School)
+}
+class com.inicio.aprendizaje.AprendizajeApplicationTests {
+~ void contextLoads()
+}
+class com.inicio.aprendizaje.tren.Pasajero {
+- int cedula
+- String nombre
++ <<Create>> Pasajero(int,String)
++ int getCedula()
++ void setCedula(int)
++ String getNombre()
++ void setNombre(String)
++ String toString()
+}
+class com.inicio.tren.Reserva {
+- int id
+- {static} AtomicInteger idGenerado
+- Pasajero pasajero
+- Silla silla
++ <<Create>> Reserva(Pasajero,Silla)
++ int getNextId()
++ int getId()
++ Pasajero getPasajero()
++ void setPasajero(Pasajero)
++ Silla getSilla()
++ void setSilla(Silla)
++ String toString()
+}
+class com.inicio.aprendizaje.tren.Tren {
+- int id
+- ArrayList<Silla> sillas
++ <<Create>> Tren(int)
+- void crearSilla(ClaseSilla,int,int)
++ Silla crearReserva()
++ boolean eliminarReserva()
++ Pasajero buscarPasajero()
++ BigDecimal calcularOcupacion()
++ ArrayList<Silla> sillasLibres()
++ int getId()
++ ArrayList<Silla> getSillas()
++ void setSillas(ArrayList<Silla>)
++ String toString()
+}
+class com.inicio.aprendizaje.Herencia.Student {
+- int studentId
++ <<Create>> Student(String,String,int)
++ <<Create>> Student(Person,int)
++ int getStudentId()
+}
+enum com.inicio.tren.ClaseSilla {
++  ECONOMICA
++  EJECUTIVA
+}
+class com.inicio.tren.Menu {
++ {static} void main(String[])
+- {static} int crearMenuPrincipal()
+- {static} void crearMenuClase()
+- {static} void crearMenuPosicion()
+}
+class com.inicio.aprendizaje.tipos.TipoPropio {
+~ String charArray
++ <<Create>> TipoPropio(char[])
+}
+class com.inicio.aprendizaje.tren.Silla {
+- String id
+- ClaseSilla claseSilla
+- PosicionSilla posicionSilla
+- Pasajero pasajero
+- int fila
++ <<Create>> Silla(String,ClaseSilla,PosicionSilla,int)
++ boolean isOcupada()
++ String getId()
++ ClaseSilla getClaseSilla()
++ PosicionSilla getPosicionSilla()
++ Pasajero getPasajero()
++ int getFila()
++ void setPasajero(Pasajero)
++ String toString()
+}
+class com.inicio.tren.Tren {
+- int id
+- ArrayList<Silla> sillas
+- ArrayList<Reserva> reservas
+- int numEconomicas
+- int numEjecutivas
+- int numSillasFila
++ <<Create>> Tren(int)
+- void crearSilla(ClaseSilla)
++ double calcularOcupacion()
++ Reserva crearReserva1(Pasajero,ClaseSilla,PosicionSilla)
++ void eliminarReserva(Pasajero)
++ ArrayList<Silla> getSillas()
++ void setSillas(ArrayList<Silla>)
++ ArrayList<Reserva> getReservas()
++ void setReservas(ArrayList<Reserva>)
++ String toString()
++ Reserva crearReserva(Pasajero,ClaseSilla,PosicionSilla)
+}
+class com.inicio.aprendizaje.Vehiculo {
+- String tamano
+- String color
+- int llantas
+- String marca
+- String tipo
++ <<Create>> Vehiculo(String,int)
++ <<Create>> Vehiculo(String,String,int,String,String)
++ <<Create>> Vehiculo()
++ String getTamano()
++ String getColor()
++ int getLlantas()
++ String getMarca()
++ String getTipo()
++ void setTamano(String)
++ void setColor(String)
++ void setLlantas(int)
++ String toString()
+}
+class com.inicio.aprendizaje.tipos.Types {
++ {static} void main(String[])
+}
+
+
+com.inicio.aprendizaje.Ejemplo.Animal <|-- com.inicio.aprendizaje.Ejemplo.LandAnimal
+com.inicio.aprendizaje.Herencia.Person <|-- com.inicio.aprendizaje.Herencia.Employee
+com.inicio.aprendizaje.Herencia.Person <|-- com.inicio.aprendizaje.Herencia.Teacher
+com.inicio.aprendizaje.Herencia.Person <|-- com.inicio.aprendizaje.Herencia.Student
+@enduml

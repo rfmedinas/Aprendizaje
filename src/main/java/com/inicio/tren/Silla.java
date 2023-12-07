@@ -5,16 +5,16 @@ public class Silla {
     private String id;
     private ClaseSilla claseSilla;
     private PosicionSilla posicionSilla;
-    private Pasajero pasajero;
     private int fila;
+    private boolean ocupada = false;
 
     public Silla(String id, ClaseSilla claseSilla, PosicionSilla posicionSilla, int fila) {
         this.id = id;
         this.claseSilla = claseSilla;
         this.posicionSilla = posicionSilla;
         this.fila = fila;
-        Pasajero nombrePasajero = new Pasajero(1, "raúl");
-        this.pasajero = nombrePasajero;
+        //Pasajero nombrePasajero = new Pasajero(1, "raúl");
+        //this.pasajero = nombrePasajero;
     }
 
     public String getId() {
@@ -41,14 +41,6 @@ public class Silla {
         this.posicionSilla = posicionSilla;
     }
 
-    public Pasajero getPasajero() {
-        return pasajero;
-    }
-
-    public void setPasajero(Pasajero pasajero) {
-        this.pasajero = pasajero;
-    }
-
     public int getFila() {
         return fila;
     }
@@ -57,18 +49,23 @@ public class Silla {
         this.fila = fila;
     }
 
+    public boolean isOcupada() {
+        return ocupada;
+    }
+
+    public void setOcupada(boolean ocupada) {
+        this.ocupada = ocupada;
+    }
+
     @Override
     public String toString() {
         return "{" +
                 "\"id\":\"" + id + "\"" +
                 ", \"claseSilla\":\"" + claseSilla + "\"" +
                 ", \"posicionSilla\":\"" + posicionSilla + "\"" +
-                ", \"pasajero\":" + pasajero + "" +
+                ", \"ocupada\":\"" + ocupada + "\"" +
                 ", \"fila\":\"" + fila + "\"" +
                 '}';
     }
 
-    public boolean ocupada() {
-        return pasajero != null;
-    }
 }

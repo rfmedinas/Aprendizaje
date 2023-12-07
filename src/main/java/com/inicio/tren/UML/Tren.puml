@@ -1,5 +1,10 @@
 @startuml
 'https://plantuml.com/class-diagram
+left to right direction
+' Horizontal lines: -->, <--, <-->
+' Vertical lines: ->, <-, <->
+title Reserva de Trenes
+
 
 class Tren {
 - id : int
@@ -7,40 +12,50 @@ class Tren {
 - numEjecutivas : int
 - numSillasFila : int
 - sillas: ArrayList<Silla>
+- reservas : ArrayList<Reserva>
 + crearReserva() :  silla
 + eliminarReserva ():  boolean
 + buscarPasajero() :  pasajero
++ consultarReserva(): Cedula
 + calcularOcupacion() :  double
-
-
 }
+
+class Reserva {
+-id : int
+-pasajero : Pasajero
+- silla : Silla
+}
+
 class Silla {
 - id : String
 - clase : ClaseSilla
 - posicion : PosicionSilla
-- pasajero  : Pasajero
 - fila : int
-+ ocupada () : boolean
-
+- ocupada : boolean
 }
 class Pasajero {
 - id : int
 - nombre : String
 }
 
+
 enum PosicionSilla{
 VENTANA
 PASILLO
-CENTRO
+
 }
 enum ClaseSilla{
 ECONOMICA
 EJECUTIVA
 }
 
-Tren "1 " *- " 100" Silla
-Silla  --  Pasajero
+
+Tren "1 " o-- " 100" Reserva
+Tren "1 " *-- " 100" Silla
+Reserva  --  Pasajero
 Silla  --  PosicionSilla
 Silla  -- ClaseSilla
+Silla  - Reserva
+
 
 @enduml
